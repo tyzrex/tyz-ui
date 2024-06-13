@@ -1,0 +1,67 @@
+---
+title: Project Structure
+description: Understand the project structure and how to configure it.
+---
+
+The project requires shadcn UI components and design system to work properly. So first you need to install the shadcn ui components in your project and setup tailwind css properly so that all the styling can work.
+
+After that a recommended folder structure is given below. You can follow this structure to keep your project organized.
+
+## Recommended Folder Structure
+
+```bash
+.
+├── public
+├── src
+│   ├── app
+│   ├── components
+│        ├── ui
+│           ├── button.tsx
+│           ├── input.tsx
+│        ├── rhf-components
+│           ├── rhf-input.tsx
+│   ├── hooks
+│   ├── lib
+│   ├── types
+
+```
+
+### Public
+
+The public folder is used to store static files like images, fonts, etc. These files can be accessed directly from the browser.
+
+### Src
+
+The src folder is the main folder where all the code of the project is stored.
+
+#### App
+
+The app folder is used to store the main app component. This component is the entry point of the app in next.js. Incase of a different framework, this may vary but the main component should be stored in src with other folders like pages according to your preference.
+
+#### Components
+
+The components folder is used to store all the components of the project. The components are divided into two folders ui and rhf-components.
+
+- #### ui
+
+  The ui folder is used to store all the shadcn UI components. These components are built using the shadcn design system and can be used in your project.
+
+- #### rhf-components
+
+  The rhf-components folder is used to store all the react-hook-form components. These components are built using the react-hook-form library and can be used in your project.
+
+### Hooks
+
+The hooks folder is used to store all the custom hooks of the project. These hooks can be used to share logic between components.
+
+### Lib
+
+The lib folder is used to store all the utility functions of the project. These functions can be used to perform common tasks like formatting dates, etc.
+
+### Types
+
+The types folder is used to store all the types of the project. These types can be used to define the shape of the data in the project.
+
+## Conclusion
+
+This is a recommended folder structure for a project using shadcn UI components and design system. You can modify this structure according to your needs but make sure to keep the project organized.

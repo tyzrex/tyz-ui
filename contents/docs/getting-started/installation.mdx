@@ -3,42 +3,35 @@ title: Installation
 description: How to install dependencies and structure your app.
 ---
 
-## TypeScript
+## Pre-requisites
 
-This project and the components are written in TypeScript. We recommend using TypeScript for your project as well.
+- Node.js
+- npm or yarn
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [Shadcn UI](https://ui.shadcn.com/)
 
-However we provide a JavaScript version of the components as well. The JavaScript version is available via the cli.
+## Required Dependencies
 
-To opt-out of TypeScript, you can use the tsx flag in your components.json file.
+- [React-dropzone](https://react-dropzone.js.org/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.com)
 
-```json:components.json
-{
-  "style": "default",
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "src/app/globals.css",
-    "baseColor": "zinc",
-    "cssVariables": true
-  },
-  "rsc": false,
-  "tsx": false,
-  "aliases": {
-    "utils": "~/lib/utils",
-    "components": "~/components"
-  }
-}
+### NPM
+
+```bash
+npm i react-dropzone react-hook-form zod
 ```
 
-## Import Alias
+### Yarn
 
-To configure import aliases, you can use the following jsconfig.json:
+```bash
+yarn add react-dropzone react-hook-form zod
+```
 
-```json:jsconfig.json
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
-    }
-  }
-}
+### PNPM
+
+```bash
+pnpm add react-dropzone react-hook-form zod
 ```

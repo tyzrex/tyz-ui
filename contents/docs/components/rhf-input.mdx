@@ -1,0 +1,103 @@
+---
+title: RHF Input
+description: A reusable input component built using react-hook-form. Takes the context of the form and the name of the input field as props.
+component: true
+---
+
+## Input
+
+A reusable input component built using react-hook-form. Takes the context of the form and the name of the input field as props.
+
+## Demo
+
+<InputDemo />
+
+## Usage
+
+First, create a schema using Zod.
+
+```tsx:src/lib/schemas/your-schema.ts
+import { z } from "zod";
+
+export const YourSchema = z.object({
+  name: z.string().nonempty("Name is required"),
+});
+
+export type YourSchemaType = z.infer<typeof YourSchema>;
+```
+
+Then, create a component using the RHFInput component.
+
+```tsx
+import { YourSchema, YourSchemaType } from "@/lib/schemas";
+import { useForm } from "react-hook-form";
+import { RHFInput } from "@/components/rhf-components";
+
+export default function YourComponent() {
+  const { register, handleSubmit, control } = useForm<YourSchemaType>({
+    resolver: zodResolver(YourSchema),
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <RHFInput<YourSchemaType>
+        name="name"
+        formLabel="Name"
+        placeHolder="Enter your name"
+      />
+      <Button type="submit">Submit</Button>
+    </Form>
+  );
+}
+```
+
+```tsx:src/components/rhf-components/rhf-input.tsx
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input, InputProps } from "@/components/ui/input";
+import { FieldValues, Path, useFormContext } from "react-hook-form";
+
+type Props<T extends FieldValues> = {
+  name: Path<T>;
+  formLabel: string;
+  placeHolder: string;
+} & InputProps;
+
+export default function RHFInput<T extends FieldValues>({
+  name,
+  formLabel,
+  placeHolder,
+  ...props
+}: Props<T>) {
+  const { control } = useFormContext();
+  return (
+    <>
+      <FormField
+        control={control}
+        name={name}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>{formLabel}</FormLabel>
+            <FormControl>
+              <Input placeholder={placeHolder} {...field} {...props} />
+            </FormControl>
+
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+    </>
+  );
+}
+```

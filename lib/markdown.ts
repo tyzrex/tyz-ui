@@ -24,6 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import InputDemo from "@/components/demo/input-demo";
 
 type MdxFrontmatter = {
   title: string;
@@ -43,6 +44,7 @@ const components = {
   TableHead,
   TableHeader,
   TableRow,
+  InputDemo,
 };
 
 function getContentPath(slug: string) {
