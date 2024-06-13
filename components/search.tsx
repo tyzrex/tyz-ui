@@ -54,7 +54,6 @@ export default function Search() {
                   <Anchor
                     className="dark:hover:bg-neutral-800 hover:bg-neutral-100 w-full p-2.5 px-3 text-sm rounded-sm flex items-center gap-2"
                     href={`/docs/${item.href}`}
-                    disabled={item.disabled}
                   >
                     <FileIcon className="h-[1.1rem] w-[1.1rem]" /> {item.title}
                   </Anchor>

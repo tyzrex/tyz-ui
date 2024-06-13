@@ -24,11 +24,9 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  return FLATTEND_ROUTES.filter((item) => item.disabled != true).map(
-    (item) => ({
-      slug: item.href.split("/"),
-    })
-  );
+  return FLATTEND_ROUTES.filter((item) => item).map((item) => ({
+    slug: item.href.split("/"),
+  }));
 }
 
 export default async function DocsPage({

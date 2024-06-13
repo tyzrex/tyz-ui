@@ -62,6 +62,7 @@ export async function getMarkdownForSlug(slug: string) {
         mdxOptions: {
           rehypePlugins: [
             rehypeCodeTitles,
+            //@ts-ignore
             rehypePrism,
             rehypeSlug,
             rehypeAutolinkHeadings,

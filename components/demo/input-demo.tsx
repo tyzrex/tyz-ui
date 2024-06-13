@@ -6,6 +6,7 @@ import { Form } from "../ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../ui/button";
+import { toast } from "sonner";
 
 const schema = z.object({
   email: z.string().email(),
@@ -21,17 +22,25 @@ function InputDemo() {
       password: "",
     },
     resolver: zodResolver(schema),
+    mode: "onChange",
   });
+
+  const onSubmit = (data: SchemaType) => {
+    console.log(data);
+    toast.success("Form submitted successfully");
+  };
 
   return (
     <div className="border my-10">
       <div className="preview flex min-h-[350px] w-full justify-center p-10 items-center">
         <Form {...form}>
-          <form className="flex flex-col space-y-5 p-5 border border-gray-300 dark:border-gray-700 rounded-xl w-[60%]">
+          <form
+            className="flex flex-col space-y-5 p-5 border border-gray-300 dark:border-gray-700 rounded-xl w-[60%]"
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
             <RHFInput<SchemaType>
               name="email"
               formLabel="Email"
-              type="email"
               placeHolder="Enter your email"
             />
             <RHFInput<SchemaType>

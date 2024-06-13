@@ -5,6 +5,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import Footer from "@/components/footer";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Docs stater template",
@@ -33,6 +34,7 @@ export default function RootLayout({
           <main className="sm:container mx-auto w-[85vw] h-auto">
             {children}
           </main>
+          <Toaster />
           <Footer />
         </ThemeProvider>
       </body>

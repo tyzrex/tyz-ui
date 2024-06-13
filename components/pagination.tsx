@@ -13,7 +13,6 @@ export default function Pagination({ pathname }: { pathname: string }) {
           <Anchor
             className={buttonVariants({ variant: "link", className: "px-0" })}
             href={`/docs/${res.prev.href}`}
-            disabled={res.prev.disabled}
           >
             <ChevronLeftIcon className="w-4 h-4" />
             <p>{res.prev.title}</p>
@@ -25,7 +24,6 @@ export default function Pagination({ pathname }: { pathname: string }) {
           <Anchor
             className={buttonVariants({ variant: "link", className: "px-0" })}
             href={`/docs/${res.next.href}`}
-            disabled={res.next.disabled}
           >
             <p>{res.next.title}</p>
             <ChevronRightIcon className="w-4 h-4" />
